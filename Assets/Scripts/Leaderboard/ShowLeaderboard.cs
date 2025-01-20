@@ -23,9 +23,7 @@ public class ShowLeaderboard : MonoBehaviour
 
         string jsonString = jsonFile.text;
 
-        Debug.Log("Attempting to open leaderboard popup...");
         await OpenPopupAsync("LeaderboardPopup", jsonString);
-        Debug.Log("Popup successfully opened!");
     }
 
     private Task OpenPopupAsync(string name, object param)

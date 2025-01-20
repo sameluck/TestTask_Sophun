@@ -34,7 +34,6 @@ namespace SimplePopupManager
         {
             if (m_Popups.ContainsKey(name))
             {
-                PrintPopups();
                 Debug.LogError($"Popup with name {name} is already shown");
                 return;
             }
@@ -87,20 +86,6 @@ namespace SimplePopupManager
             else
             {
                 Debug.LogError($"Failed to load Popup with name {name}");
-            }
-        }
-        
-        public void PrintPopups()
-        {
-            if (m_Popups.Count == 0)
-            {
-                Debug.Log("No active popups.");
-                return;
-            }
-
-            foreach (KeyValuePair<string, GameObject> entry in m_Popups)
-            {
-                Debug.Log($"Popup Name: {entry.Key}, Popup GameObject: {entry.Value.name}");
             }
         }
     }
