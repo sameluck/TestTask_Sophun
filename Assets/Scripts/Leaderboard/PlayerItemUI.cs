@@ -23,25 +23,40 @@ public class PlayerItemUI : MonoBehaviour
 
     private void SetTypeStyle(string type)
     {
+        float newHeight;
+
         switch (type)
         {
             case "Diamond":
                 background.color = Color.cyan;
+                newHeight = 180f;
                 break;
             case "Gold":
                 background.color = Color.yellow;
+                newHeight = 160f;
                 break;
             case "Silver":
                 background.color = Color.gray;
+                newHeight = 140f;
                 break;
             case "Bronze":
                 background.color = new Color(0.8f, 0.5f, 0.2f);
+                newHeight = 120f;
                 break;
             default:
                 background.color = Color.white;
+                newHeight = 100f;
                 break;
         }
+
+        // Adjust the RectTransform size
+        RectTransform rectTransform = GetComponent<RectTransform>();
+        if (rectTransform != null)
+        {
+            rectTransform.sizeDelta = new Vector2(rectTransform.sizeDelta.x, newHeight);
+        }
     }
+
 
     private async Task LoadAvatar(string url, string name)
     {
